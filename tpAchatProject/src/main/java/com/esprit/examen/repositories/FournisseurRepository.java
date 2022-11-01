@@ -6,5 +6,6 @@ import com.esprit.examen.entities.Fournisseur;
 
 @Repository
 public interface FournisseurRepository extends JpaRepository<Fournisseur, Long> {
+	
 
 }
