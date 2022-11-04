@@ -3,7 +3,7 @@ services:
   mysqldb:
     container_name: mysqldb
     image: mysql:8
-    restart: unless-stopped
+   
     environment:
       MYSQL_ROOT_PASSWORD: pass
     volumes:
@@ -11,7 +11,7 @@ services:
   spring_app:
     image: mayakammoun/app:latest
     container_name: achatproject
-    restart: on-failure
+    
     ports:
       - 8089:8089
     depends_on:
