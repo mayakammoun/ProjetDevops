@@ -7,7 +7,7 @@ pipeline {
           checkout([$class: 'GitSCM',
             branches: [[name: '*/yasminebranche' ]],
             userRemoteConfigs: [[
-            url: 'https://github.com/mayakammoun/ProjetDevops.git',
+            url: 'https://github.com/mayakammoun/ProjetDevops/tpAchatProject.git',
             credentialsId: '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'
             ]]
             ])
