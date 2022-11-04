@@ -9,7 +9,7 @@ services:
     volumes:
       - /home/mysql/data:/var/lib/mysql
   spring_app:
-    image: mayakammoun/tpAchatProject:latest
+    image: mayakammoun/app:latest
     container_name: achatproject
     restart: on-failure
     ports:
