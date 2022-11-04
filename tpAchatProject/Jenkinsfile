@@ -1,0 +1,16 @@
+pipeline {
+  agent any
+  stages {
+    stage("Pull") {
+      steps {
+        script {
+          checkout([$class: 'GitSCM',
+            branches: [[name: '*/yasminebranche' ]],
+            userRemoteConfigs: [[
+            url: 'https://github.com/mayakammoun/ProjetDevops.git',
+            credentialsId: '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'
+            ]]
+            ])
+          }
+        }
+    }
