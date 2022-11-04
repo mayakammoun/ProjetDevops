@@ -4,7 +4,7 @@ pipeline {
     stage('Git Code'){
             steps{
                 git branch: 'yasminebranche',
-                url: 'https://github.com/mayakammoun/ProjetDevops.git'
+                url: 'https://github.com/mayakammoun/ProjetDevops/tpAchatProject.git'
             }
          }
         }
