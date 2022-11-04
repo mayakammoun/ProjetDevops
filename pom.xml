@@ -75,10 +75,10 @@
 	
 	<distributionManagement>
 		<repository>
-			<id>deploymentRepo</id>
+			<id>deploymentRepo</id> 
 			<name>Nexus Repository</name>
 			<url>http://192.168.1.13:8081/repository/maven-snapshots/</url>
-		</repository>
+		</repository> 
 	</distributionManagement>
 
 	<build>
@@ -106,7 +106,7 @@
 				<version>3.1.0</version>
 			</plugin>
 		</plugins>
-		<finalName>app-achat-1.0</finalName>
+		<finalName>tpAchatProject-1.0</finalName>
 	</build>
 
 </project>
