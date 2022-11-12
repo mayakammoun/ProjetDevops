@@ -19,10 +19,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
+@Entity
 @Getter
 @Setter
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 public class Fournisseur implements Serializable {
@@ -42,16 +41,9 @@ public class Fournisseur implements Serializable {
     @ManyToMany
     @JsonIgnore
     private Set<SecteurActivite> secteurActivites;
-	@OneToOne(cascade= CascadeType.ALL,fetch=FetchType.EAGER)
+    @OneToOne(cascade= CascadeType.ALL,fetch=FetchType.EAGER)
     private DetailFournisseur detailFournisseur;
-	 public Fournisseur( String code, String libelle, CategorieFournisseur categorieFournisseur,DetailFournisseur detailFournisseur) {
-			super();
-			this.code = code;
-			this.libelle = libelle;
-			this.categorieFournisseur = categorieFournisseur;
-			this.detailFournisseur = detailFournisseur;
-
-		}
+    
 
 	
 }
