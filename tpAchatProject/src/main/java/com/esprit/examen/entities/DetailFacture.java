@@ -31,11 +31,5 @@ public class DetailFacture implements Serializable {
 	@ManyToOne
 	@JsonIgnore
 	Facture facture;
-	public Integer getQteCommandee() {
-		return qteCommandee;
-	}
-	public void setQteCommandee(Integer qteCommandee) {
-		this.qteCommandee = qteCommandee;
-	}
 
 }
