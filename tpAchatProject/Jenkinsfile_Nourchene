@@ -82,28 +82,28 @@ pipeline {
         }
         stage('Building Docker Image') {
                     steps {
-                        dir('.'){
+                        dir('tpAchatProject/'){
                             sh 'docker build -t nourcheneriahi/tpachat .'
                                 }
                             }
                         }
                 stage('Login to DockerHub') {
                     steps{
-                        dir('.'){
+                        dir('tpAchatProject/'){
                             sh 'docker login -u nourcheneriahi -p dockerhub'
                             }
                         }
                     }
                 stage('Push to DockerHub') {
                     steps{
-                        dir('.'){
+                        dir('tpAchatProject/'){
                             sh 'docker push nourcheneriahi/tpachat'
                              }
                         }
                     }
                 stage('Docker Compose'){
                     steps{
-                       dir('.'){
+                       dir('tpAchatProject/'){
                             sh 'docker-compose up -d'
                             }
                        }
