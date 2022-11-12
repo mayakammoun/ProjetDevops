@@ -41,8 +41,6 @@ public class FactureServiceImpl implements IFactureService {
 		List<Facture> factures = (List<Facture>) factureRepository.findAll();
 		for (Facture facture : factures) {
 			log.info(" facture : " + facture);
-	 
-	
 		}
 		return factures;
 	}
@@ -96,10 +94,7 @@ public class FactureServiceImpl implements IFactureService {
 
 		Facture facture = factureRepository.findById(factureId).orElse(null);
 		log.info("facture :" + facture);
-	 
-	
 		return facture;
-		
 	}
 
 	@Override
