@@ -80,5 +80,33 @@ pipeline {
                 }
             }
         }
+        stage('Building Docker Image') {
+                    steps {
+                        dir('.'){
+                            sh 'docker build -t nourcheneriahi/tpachat .'
+                                }
+                            }
+                        }
+                stage('Login to DockerHub') {
+                    steps{
+                        dir('.'){
+                            sh 'docker login -u nourcheneriahi -p dockerhub'
+                            }
+                        }
+                    }
+                stage('Push to DockerHub') {
+                    steps{
+                        dir('.'){
+                            sh 'docker push nourcheneriahi/tpachat'
+                             }
+                        }
+                    }
+                stage('Docker Compose'){
+                    steps{
+                       dir('.'){
+                            sh 'docker-compose up -d'
+                            }
+                       }
+                    }
     }
 }
