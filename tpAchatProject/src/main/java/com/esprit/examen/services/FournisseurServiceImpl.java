@@ -14,11 +14,10 @@ import com.esprit.examen.repositories.DetailFournisseurRepository;
 import com.esprit.examen.repositories.FournisseurRepository;
 import com.esprit.examen.repositories.ProduitRepository;
 import com.esprit.examen.repositories.SecteurActiviteRepository;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j 
+@Slf4j
 public class FournisseurServiceImpl implements IFournisseurService {
 
 	@Autowired
