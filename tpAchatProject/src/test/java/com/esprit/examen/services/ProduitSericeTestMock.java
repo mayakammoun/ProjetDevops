@@ -27,8 +27,8 @@ import com.esprit.examen.entities.Stock;
 import com.esprit.examen.repositories.FactureRepository;
 import com.esprit.examen.repositories.ProduitRepository;
 import com.esprit.examen.repositories.StockRepository;
-import com.esprit.examen.repositories.FactureServiceImpl;
-import com.esprit.examen.repositories.ProduitServiceImpl;
+import com.esprit.examen.services.FactureServiceImpl;
+import com.esprit.examen.services.ProduitServiceImpl;
 
 @SpringBootTest
 @RunWith(MockitoJUnitRunner.class)
