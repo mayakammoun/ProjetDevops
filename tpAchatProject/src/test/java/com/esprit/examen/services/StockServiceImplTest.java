@@ -41,7 +41,7 @@ public class StockServiceImplTest {
 		this.s1 = new Stock();
 		this.s1.setIdStock(0L);
 		this.s1.setLibelleStock("Test 1");
-		this.s1.setQte(11);
+		this.s1.setQte(10);
 		this.s1.setQteMin(11);
 
 		this.s2 = new Stock();
@@ -110,5 +110,14 @@ public class StockServiceImplTest {
 		assertNotNull(exisitingStock);
 		assertEquals("test", exisitingStock.getLibelleStock());
 
+	}
+	@Test
+	@DisplayName("Test Retrieve Status Stock")
+	public void testRetrieveStatusStock() {
+		init();
+		List<Stock> stocksEnRouge = new ArrayList<>();
+		stocksEnRouge.add(s1);
+		when(stockRepository.retrieveStatusStock()).thenReturn(stocksEnRouge);
+		assertThat(stockService.retrieveStatusStock()).contains("le stock Test 1 a une quantité de 10 inférieur à la quantité minimale a ne pas dépasser de 11");
 	}
 }
