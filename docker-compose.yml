@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     environment:
          MYSQL_DATABASE: tpachato
-         MYSQL_ROOT_PASSWORD: pass 
+         MYSQL_ROOT_PASSWORD:  
     volumes:
       - /home/mysql/data:/var/lib/mysql
   spring_app:
