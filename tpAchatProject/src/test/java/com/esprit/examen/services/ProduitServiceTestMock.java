@@ -33,7 +33,7 @@ import tn.esprit.rh.achat.services.ProduitServiceImpl;
 @SpringBootTest
 @RunWith(MockitoJUnitRunner.class)
 
-public class ProduitSericeTestMock {
+public class ProduitSevriceTestMock {
     @Mock
     ProduitRepository produitRepository;
 
