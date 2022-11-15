@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,8 +28,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.esprit.examen.entities.CategorieProduit;
 import com.esprit.examen.entities.dto.CategorieProduitDTO;
 import com.esprit.examen.repositories.CategorieProduitRepository;
+
+import lombok.extern.slf4j.Slf4j;
 @RunWith(SpringRunner.class)
 @ExtendWith(MockitoExtension.class)
+@Slf4j
 public class CategorieProduitServiceImplTest {
 	@Mock
 	private CategorieProduitRepository categorieProduitRepository;
@@ -53,15 +57,18 @@ public class CategorieProduitServiceImplTest {
 	}
 	@Test
 	public void testAddcategorieProduit() {
+		log.info("entred function : testAddcategorieProduit");
 		init();
 		when(categorieProduitRepository.save(any(CategorieProduit.class))).thenReturn(cp1);
 		CategorieProduitDTO cprm=modelMapper.map(cp1, CategorieProduitDTO.class);
 		CategorieProduit pnew=categorieProduitServiceImpl.addCategorieProduit(cprm);
 		assertNotNull(pnew);
 		assertThat(pnew.getIdCategorieProduit()).isEqualTo(1L);
+		log.info("exited function : testAddcategorieProduit");
 	}
 	@Test
 	public void getCategorieProduits() {
+		log.info("entred function : getCategorieProduits");
 		init();
 		List<CategorieProduit> list = new ArrayList<>();
 		list.add(cp1);
@@ -70,10 +77,12 @@ public class CategorieProduitServiceImplTest {
 		List<CategorieProduit> Produits = categorieProduitServiceImpl.retrieveAllCategorieProduits();
 		assertEquals(2, Produits.size());
 		assertNotNull(Produits);
+		log.info("exited function : getCategorieProduits");
 	}
 	
 	@Test
 	public void getCategorieProduitsById() {
+		log.info("entred function : getCategorieProduitsById");
 		init();
 		when(categorieProduitRepository.save(any(CategorieProduit.class))).thenReturn(cp1);
 		CategorieProduitDTO prm=modelMapper.map(cp1, CategorieProduitDTO.class);
@@ -82,9 +91,11 @@ public class CategorieProduitServiceImplTest {
 		CategorieProduit existingProduit = categorieProduitServiceImpl.retrieveCategorieProduit(pnew.getIdCategorieProduit());
 		assertNotNull(existingProduit);
 		assertThat(existingProduit.getIdCategorieProduit()).isNotNull();
+		log.info("exited function : getCategorieProduitsById");
 	}
 	@Test
 	public void updateCategorieProduit() {
+		log.info("entred function : updateCategorieProduit");
 		init();
 		when(categorieProduitRepository.findById(anyLong())).thenReturn(Optional.of(cp1));
 		
@@ -95,15 +106,18 @@ public class CategorieProduitServiceImplTest {
 		
 		assertNotNull(exisitingProduit);
 		assertEquals("Fantacy", exisitingProduit.getCodeCategorie());
+		log.info("exited function : updateCategorieProduit");
 	}
 	@Test
 	public void deleteCategorieProduit() {
+		log.info("entred function : deleteCategorieProduit");
 		init();
 		Long ProduitId = 1L;
 		when(categorieProduitRepository.findById(anyLong())).thenReturn(Optional.of(cp1));
 		doNothing().when(categorieProduitRepository).deleteById(anyLong());
 		categorieProduitServiceImpl.deleteCategorieProduit(ProduitId);
 		verify(categorieProduitRepository, times(1)).deleteById(anyLong());
+		log.info("exited function : deleteCategorieProduit");
 		
 	}
 	

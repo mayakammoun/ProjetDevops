@@ -1,18 +1,23 @@
 package com.esprit.examen.services;
 
+import java.util.Date;
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.esprit.examen.entities.Facture;
 import com.esprit.examen.entities.Fournisseur;
 import com.esprit.examen.entities.Operateur;
 import com.esprit.examen.entities.dto.FactureDTO;
-import com.esprit.examen.repositories.*;
-import com.esprit.examen.services.IFactureService;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.esprit.examen.repositories.FactureRepository;
+import com.esprit.examen.repositories.FournisseurRepository;
+import com.esprit.examen.repositories.OperateurRepository;
+import com.esprit.examen.repositories.ReglementRepository;
 
-import javax.transaction.Transactional;
-import java.util.Date;
-import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
