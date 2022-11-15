@@ -37,6 +37,34 @@ pipeline {
                                 }
                             }
                         }
+                         stage('Building Docker Image') {
+                    steps {
+                        dir('tpAchatProject'){
+                            sh 'docker build -t abiiir/tpachat .'
+                                }
+                            }
+                        }
+                stage('Login to DockerHub') {
+                    steps{
+                        dir('tpAchatProject'){
+                            sh 'docker login -u abiiir -p 214JFT0824'
+                            }
+                        }
+                    }
+                stage('Push to DockerHub') {
+                    steps{
+                        dir('tpAchatProject'){
+                            sh 'docker push abiiir/tpachat'
+                             }
+                        }
+                    }
+                stage('Docker Compose'){
+                    steps{
+                       dir('tpAchatProject'){
+                            sh 'docker-compose up -d'
+                            }
+                       }
+                    }
                        
                 }
                 }
